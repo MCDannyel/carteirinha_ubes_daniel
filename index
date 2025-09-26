@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Validação de CIE</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f2f5;
+            color: #333;
+            line-height: 1.5;
+            padding: 10px;
+        }
+        
+        .container {
+            max-width: 100%;
+            background-color: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #1a5276, #2e86c1);
+            color: white;
+            padding: 16px;
+            text-align: center;
+        }
+        
+        .header h1 {
+            font-size: 18px;
+            margin-bottom: 5px;
+        }
+        
+        .valid-badge {
+            background-color: #27ae60;
+            color: white;
+            padding: 10px;
+            border-radius: 8px;
+            text-align: center;
+            font-weight: bold;
+            margin: 15px;
+            font-size: 16px;
+        }
+        
+        .student-info {
+            margin: 0 15px 15px;
+            padding: 12px;
+            background-color: #e8f4fc;
+            border-radius: 8px;
+            font-size: 14px;
+            border-left: 4px solid #2e86c1;
+        }
+        
+        .photo-section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 15px;
+            padding: 15px;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+        }
+        
+        .photo-container {
+            width: 120px;
+            height: 150px;
+            border: 2px dashed #a0a0a0;
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 15px;
+            background-color: #f9f9f9;
+        }
+        
+        .photo-placeholder {
+            text-align: center;
+            color: #777;
+            font-size: 12px;
+        }
+        
+        .info-grid {
+            width: 100%;
+        }
+        
+        .info-row {
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 12px;
+            padding-bottom: 8px;
+            border-bottom: 1px solid #f0f0f0;
+        }
+        
+        .info-label {
+            font-weight: bold;
+            font-size: 14px;
+            color: #2c3e50;
+            margin-bottom: 3px;
+        }
+        
+        .info-value {
+            font-size: 14px;
+        }
+        
+        .certificate-section {
+            margin: 15px;
+        }
+        
+        .certificate-title {
+            font-weight: bold;
+            margin-bottom: 8px;
+            font-size: 14px;
+        }
+        
+        .certificate {
+            background-color: #f8f9fa;
+            padding: 12px;
+            border-radius: 6px;
+            font-family: monospace;
+            font-size: 10px;
+            white-space: pre-wrap;
+            word-break: break-all;
+            max-height: 200px;
+            overflow-y: auto;
+            border: 1px solid #e0e0e0;
+        }
+        
+        .footer {
+            background-color: #2c3e50;
+            color: white;
+            padding: 15px;
+            border-radius: 0 0 12px 12px;
+        }
+        
+        .footer h3 {
+            text-align: center;
+            margin-bottom: 12px;
+            font-size: 16px;
+        }
+        
+        .footer-links {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8px;
+            margin-bottom: 12px;
+        }
+        
+        .footer-links a {
+            color: #a0d2f7;
+            text-decoration: none;
+            font-size: 12px;
+            text-align: center;
+            padding: 5px;
+        }
+        
+        .footer-links a:hover {
+            text-decoration: underline;
+        }
+        
+        .copyright {
+            text-align: center;
+            font-size: 11px;
+            color: #bdc3c7;
+            margin-top: 10px;
+        }
+        
+        /* Estilo para a barra de rolagem no certificado */
+        .certificate::-webkit-scrollbar {
+            width: 6px;
+        }
+        
+        .certificate::-webkit-scrollbar-thumb {
+            background-color: #95a5a6;
+            border-radius: 3px;
+        }
+        
+        .certificate::-webkit-scrollbar-track {
+            background-color: #ecf0f1;
+        }
+        
+        @media (min-width: 400px) {
+            .info-row {
+                flex-direction: row;
+            }
+            
+            .info-label {
+                min-width: 120px;
+                margin-bottom: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Validação de CIE</h1>
+            <p>(Carteira de Identificação Estudantil)</p>
+        </div>
+        
+        <div class="valid-badge">Documento válido!</div>
+        
+        <div class="student-info">
+            UBES atesta que Bruna Araújo Santana é estudante e está regularmente matriculado(a) em Ciências da Computação na UFBA - Universidade Federal da Bahia
+        </div>
+        
+        <div class="photo-section">
+            <div class="photo-container">
+                <div class="photo-placeholder">
+                    <div class="photo">
+    <img src="https://postimg.cc/cvwnr8Cf" 
+         alt="Foto do Estudante"
+         width="120"
+         height="150"
+         style="border-radius: 5px;">
+</div>
+                </div>
+            </div>
+            
+            <div class="info-grid">
+                <div class="info-row">
+                    <div class="info-label">Nome:</div>
+                    <div class="info-value">Daniel Alves Melo</div>
+                </div>
+                
+                <div class="info-row">
+                    <div class="info-label">Instituição:</div>
+                    <div class="info-value">UFBA - Universidade Federal da Bahia</div>
+                </div>
+                
+                <div class="info-row">
+                    <div class="info-label">Curso:</div>
+                    <div class="info-value">Ciências da Computação</div>
+                </div>
+                
+                <div class="info-row">
+                    <div class="info-label">Documento:</div>
+                    <div class="info-value">0000085885628556</div>
+                </div>
+                
+                <div class="info-row">
+                    <div class="info-label">Emissor:</div>
+                    <div class="info-value">UBES</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="certificate-section">
+            <div class="certificate-title">Certificado de Atributo em formato PEM:</div>
+            <div class="certificate">
+--- BEGIN CERTIFICATE ---
+
+MIDI/OCA:VCA/DE:wgZnggZtMwgY2kqYowqYcidCA:JlIgWvBAYTMLS8MRMuEQTYDVQQKDxpJQTMQb:hhz7kMITYwMXDVQQLDcTVTMBTyBCUMTSUJFSVLIBERPUyRFU1RVREFO
+VEVTFINFQTVOREFSSWNLIOVMMCAgEqfWRAMMktrtImErG0m9rZ2VzIFUXZXJbmHgVYKj4EEZxImRibmVsk6UGA0GggxMwgcCyqd0wgloxiCaAJlIgWvBAYTMLSMRMuEQYDVQQ
+KDxpJQTMQb:hhz7kMIYowqYcidCOuLOAAIMGEyMTk1NcAwMDEnOfTEDMMvGA1UECwwFWFMSU0aGaAZBgWRAMJEIIlsGWYSBKKXLy2GYYSBBMzEYMBYGA1UECwwPQUM
+gVkFMSUQgQLIBUDIMIITYwMXDVQQDDCTVTMBTyBCUMTSUJFSVLIBERPUyRFU1RVREFO(VEVTFINFQTVOREFSSWNLIOVMwDOfYLkx2fnvcMXCEFBQACBAD3LyQwhipPUlyky
+NTAsMjQaxLM1NTNaGA9yND2kNDLMTrLMTk1Ofwoyqc0wRqYPTVEuRcogEpDRMTMDUuMdmMDcMDM1OTrg4ODUyljWwMDMJPMJTTETODEXMTwMDnMJyAoDcdMzcwNSYql
+CyqdCyqdCwwlgYTYEuRcogInRNRfWUgt.SBDBo2kZZMFBhsOBYYWshinRIGRMEHwrvvYsSyelCyqdETFRBERpCqdCyqdCyqdFXvcZubyBNZWRgbyqdCyqdCyqdCyqdCyqdPtNbb
+H2hZ69yCyqdCyqdCyqdDEwCwYFTEwBBAMxAMAMAMHMwKYDVROBCGMJKEqihindHfbwzzwd.3VZXMA2SBLuZj.3YvL3HybG1YmvL1mHyb9pZ0oMB0GA1UtInv0Wyg0
+wYUDGvLGRVOTghpHEWiw0MwEaTlVBiggrBgEFBOcBAVOYNBAGCC4GAOLITBA/CBAvGBIUhLVFBTNA0GCsgGShb0GEBBOUAAHBAQB2l/KceiwTZiZi3RSJJaRKJLNYM8mwRV
+72Tk1mtEiOmbsLisJakNaiV2SJJmi1GECOprimDBrFzpiy4Ju+u4DbzWPc+mRoqDKyzQdyPGcNGHNF3ei RWzDrGy1twQZjLSXwgJrTC1fWWog9TRKG82ds0MWwg/EboBMzTzqCr-
+8rISV7T6jOxknsFjBZavQJJYIHWh/r7OELwMx0CzuMskiSDZF462aLFnMtYi3sm+GJ1HuJukJKaJKX5oyfNue+VPS4gi+IEAvXrMAv2RGCE0FrnMRRYK6n+ogTbILx1toxjOHWNKJ
+1fKvq8wdc57jpPtl1bTfyOp
+
+--- END CERTIFICATE ---
+            </div>
+        </div>
+        
+        <div class="footer">
+            <h3>meiaentrada.org.br</h3>
+            
+            <div class="footer-links">
+                <a href="#">Nome</a>
+                <a href="#">Notícias</a>
+                <a href="#">Lei da Meia-entrada</a>
+                <a href="#">Termos de Uso</a>
+                <a href="#">Chaves públicas</a>
+                <a href="#">FAQ</a>
+            </div>
+            
+            <div class="copyright">
+                @Meiaentrada.org.br – Todos os Direitos Reservados 2025
+            </div>
+        </div>
+    </div>
+</body>
+</html>
